@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { setAlert } from '../../../../actions/alert.js';
+import { register } from '../../../../actions/auth.js';
 
 import './Register.css';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
@@ -17,6 +18,11 @@ const Register = ({ setAlert }) => {
       return;
     }
 
+    register({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    });
     form.resetFields();
     console.log('Success:', values);
   };
@@ -115,6 +121,7 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
