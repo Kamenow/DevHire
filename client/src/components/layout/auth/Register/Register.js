@@ -1,14 +1,19 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 import './Register.css';
 
 const Register = () => {
-  const onFinish = (values) => {
+  const [form] = Form.useForm();
+
+  const onFinish = async (values) => {
     if (values.password !== values.repassword) {
       console.log('Failed:', values);
       return;
     }
+
+    form.resetFields();
     console.log('Success:', values);
   };
 
@@ -19,15 +24,13 @@ const Register = () => {
   return (
     <section className='register'>
       <Form
+        form={form}
         name='basic'
         labelCol={{
           span: 8,
         }}
         wrapperCol={{
           span: 16,
-        }}
-        initialValues={{
-          remember: true,
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -51,12 +54,12 @@ const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label='Username'
-          name='username'
+          label='Name'
+          name='name'
           rules={[
             {
               required: true,
-              message: 'Please input your username!',
+              message: 'Please input your name!',
             },
           ]}
         >
@@ -95,6 +98,8 @@ const Register = () => {
             span: 16,
           }}
         >
+          <Link to='/login'>Already have an account 😎 Login!</Link>
+
           <Button type='primary' htmlType='submit'>
             Submit
           </Button>
