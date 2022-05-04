@@ -18,13 +18,13 @@ const Login = ({ login, isAuthenticated }) => {
     // form.resetFields();
   };
 
-  if (isAuthenticated) {
-    return <Navigate to='/' />;
-  }
-
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+
+  if (isAuthenticated) {
+    return <Navigate to='/dashboard' />;
+  }
 
   return (
     <section className='login'>
