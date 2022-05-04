@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import React, { Fragment } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/layout/Navbar/Navbar.js';
 import Login from './components/layout/auth/Login/Login.js';
 import './App.css';
 
@@ -25,12 +26,13 @@ const App = () => {
     </div>
     <BrowserRouter>
       <Fragment>
+        <Navbar />
         <Routes>
           <Route path='/login' element={<Login />}></Route>
         </Routes>
       </Fragment>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
