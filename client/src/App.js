@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import React, { Fragment } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar/Navbar.js';
+import Landing from './components/layout/Landing/Landing.js';
 import Login from './components/layout/auth/Login/Login.js';
 import './App.css';
 
@@ -28,6 +29,7 @@ const App = () => {
       <Fragment>
         <Navbar />
         <Routes>
+          <Route path='/' element={<Landing />}></Route>
           <Route path='/login' element={<Login />}></Route>
         </Routes>
       </Fragment>
