@@ -1,15 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { setAlert } from '../../../../actions/alert.js';
 
 import './Register.css';
 
-const Register = () => {
+const Register = ({ setAlert }) => {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
     if (values.password !== values.repassword) {
-      console.log('Failed:', values);
+      setAlert('Passwords do not match', 'danger');
       return;
     }
 
@@ -109,4 +113,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert })(Register);
