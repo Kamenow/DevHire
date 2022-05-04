@@ -1,16 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../../../actions/auth.js';
 
 import './Login.css';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    form.resetFields();
+
+    login(values.email, values.password);
+
+    // form.resetFields();
   };
+
+  if (isAuthenticated) {
+    return <Navigate to='/' />;
+  }
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -78,4 +88,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);
