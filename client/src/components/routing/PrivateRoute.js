@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
+import { Spin } from 'antd';
 
 import { connect } from 'react-redux';
 
@@ -9,11 +10,10 @@ const PrivateRoute = ({
   auth: { isAuthenticated, loading },
   ...rest
 }) => {
-  if (isAuthenticated && !loading) {
-    return <Component />;
-  } else {
-    return <Navigate to='/login' />;
-  }
+  if (loading) return <Spin />;
+  if (isAuthenticated) return <Component />;
+
+  return <Navigate to='/login' />;
 };
 
 PrivateRoute.propTypes = {
