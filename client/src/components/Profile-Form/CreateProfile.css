@@ -1,0 +1,14 @@
+.create-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.create-profile form {
+  width: 80%;
+}
+
+.create-profile .ant-form-item {
+  margin: 0 20% 1rem auto;
+}
