@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Card, Table } from 'antd';
+import { deleteEducation } from '../../../actions/profile.js';
 
 import './Education.css';
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
   const educations = education;
 
   const columns = [
@@ -34,11 +35,14 @@ const Education = ({ education }) => {
     },
     {
       title: 'Action',
-      render: () => (
-        <Button type='primary' danger>
-          Delete
-        </Button>
-      ),
+      dataIndex: '_id',
+      render: (id) => {
+        return (
+          <Button type='primary' danger onClick={() => deleteEducation(id)}>
+            Delete
+          </Button>
+        );
+      },
     },
   ];
 
@@ -52,6 +56,7 @@ const Education = ({ education }) => {
 
 Education.propTypes = {
   education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, null)(Education);
+export default connect(null, { deleteEducation })(Education);
