@@ -26,7 +26,7 @@ const AddEducation = ({ addEducation }) => {
         fieldofstudy: values.fieldOfStudy,
         from: values.fromDate,
         to: values.toDate,
-        current: values.current,
+        current: values.currentjob,
         description: values.jobDescription,
       },
       navigate
@@ -78,7 +78,13 @@ const AddEducation = ({ addEducation }) => {
           <Input placeholder='Degree' />
         </Form.Item>
 
-        <Form.Item label='Field Of Study' name='fieldOfStudy'>
+        <Form.Item
+          label='Field Of Study'
+          name='fieldOfStudy'
+          rules={[
+            { required: true, message: 'Please input your field of study!' },
+          ]}
+        >
           <Input placeholder='Field Of Study' />
         </Form.Item>
 
