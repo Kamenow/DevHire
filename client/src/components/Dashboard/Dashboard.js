@@ -2,11 +2,13 @@ import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Experience from './Experience/Experience.js';
 import { Card, Descriptions, Empty, Image, Spin, Button } from 'antd';
 
 import { getCurrentProfile } from '../../actions/profile.js';
 
 import './Dashboard.css';
+import Education from './Education/Education.js';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -54,6 +56,16 @@ const Dashboard = ({
                   </Descriptions.Item>
                 </Descriptions>
               </Card>
+              {profile.experience.length > 0 ? (
+                <Experience experience={profile.experience} />
+              ) : (
+                ''
+              )}
+              {profile.education.length > 0 ? (
+                <Education education={profile.education} />
+              ) : (
+                ''
+              )}
               <Card>
                 <div className='button-wrapper'>
                   <Button type='primary'>
