@@ -15,3 +15,14 @@
 .dashboard h2 {
   text-align: center;
 }
+
+.button-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
