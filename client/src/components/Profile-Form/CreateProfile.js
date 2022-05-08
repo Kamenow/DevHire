@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Select } from 'antd';
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import './CreateProfile.css';
 
 const { Option } = Select;
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({ createProfile }) => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
 

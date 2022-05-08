@@ -3,3 +3,10 @@
   margin: 0;
   padding: 0;
 }
+
+.ant-spin-spinning {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
