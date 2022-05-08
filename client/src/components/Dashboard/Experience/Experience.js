@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Card, Table } from 'antd';
+import { deleteExperience } from '../../../actions/profile.js';
 
 import './Experience.css';
 
-const Experience = ({ experience }) => {
+const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience;
 
   const columns = [
@@ -37,11 +38,14 @@ const Experience = ({ experience }) => {
     },
     {
       title: 'Action',
-      render: () => (
-        <Button type='primary' danger>
-          Delete
-        </Button>
-      ),
+      dataIndex: '_id',
+      render: (id) => {
+        return (
+          <Button type='primary' danger onClick={() => deleteExperience(id)}>
+            Delete
+          </Button>
+        );
+      },
     },
   ];
 
@@ -55,6 +59,7 @@ const Experience = ({ experience }) => {
 
 Experience.propTypes = {
   experience: PropTypes.array.isRequired,
+  deleteExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, null)(Experience);
+export default connect(null, { deleteExperience })(Experience);
