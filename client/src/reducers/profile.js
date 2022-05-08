@@ -1,5 +1,4 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from '../actions/types.js';
 import {
   GET_PROFILE,
   PROFILE_ERROR,
@@ -26,6 +25,7 @@ export default function (state = initialState, action) {
         profile: payload,
         loading: false,
       };
+
     case PROFILE_ERROR:
       return {
         ...state,
