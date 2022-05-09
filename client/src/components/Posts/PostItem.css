@@ -1,0 +1,38 @@
+.post-item {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content-action-wrapper {
+  display: flex;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  color: gray;
+}
+
+.button-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.wid {
+  position: relative;
+  width: 80%;
+}
