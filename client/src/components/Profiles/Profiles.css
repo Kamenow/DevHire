@@ -1,0 +1,17 @@
+.profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profiles .ant-card {
+  width: 60%;
+}
+
+.title h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
