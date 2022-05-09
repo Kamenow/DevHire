@@ -1,0 +1,16 @@
+.profile-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.github-repos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repo-info ul {
+  list-style: none;
+}

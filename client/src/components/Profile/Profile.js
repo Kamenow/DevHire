@@ -10,6 +10,7 @@ import './Profile.css';
 import ProfileAbout from './ProfileAbout.js';
 import ProfileExperience from './ProfileExperience.js';
 import ProfileEducation from './ProfileEducation.js';
+import ProfileGithub from './ProfileGithub.js';
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   const { id } = useParams();
@@ -71,6 +72,11 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                 <p>No Education</p>
               )}
             </div>
+          </Card>
+          <Card>
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
           </Card>
         </Fragment>
       )}
