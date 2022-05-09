@@ -10,7 +10,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Fragment>
       <li>
-        <Link to='#!'>Developers</Link>
+        <Link to='/profiles'>Developers</Link>
       </li>
       <li>
         <Link to='/dashboard'>Dashboard</Link>
@@ -25,6 +25,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <Fragment>
+      <li>
+        <Link to='/profiles'>Developers</Link>
+      </li>
       <li>
         <Link to='/register'>Register</Link>
       </li>
