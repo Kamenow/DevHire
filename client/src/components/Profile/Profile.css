@@ -1,0 +1,18 @@
+.single-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.single-profile .ant-card {
+  width: 60%;
+}
+
+.profile-button-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
