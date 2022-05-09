@@ -8,6 +8,8 @@ import ProfileTop from './ProfileTop.js';
 
 import './Profile.css';
 import ProfileAbout from './ProfileAbout.js';
+import ProfileExperience from './ProfileExperience.js';
+import ProfileEducation from './ProfileEducation.js';
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   const { id } = useParams();
@@ -36,6 +38,40 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
           </div>
           <ProfileTop profile={profile} />
           <ProfileAbout profile={profile} />
+          <Card>
+            <div className='profile-experience'>
+              <h2>Experience</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((experience) => (
+                    <ProfileExperience
+                      key={experience._id}
+                      experience={experience}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <p>No experience</p>
+              )}
+            </div>
+          </Card>
+          <Card>
+            <div className='profile-education'>
+              <h2>Education</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((education) => (
+                    <ProfileEducation
+                      key={education._id}
+                      education={education}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <p>No Education</p>
+              )}
+            </div>
+          </Card>
         </Fragment>
       )}
     </section>
