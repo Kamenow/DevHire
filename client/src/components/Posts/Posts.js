@@ -1,16 +1,32 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Spin } from 'antd';
+import { Card, Spin } from 'antd';
 
 import { getPosts } from '../../actions/post.js';
+
+import './Posts.css';
+import PostItem from './PostItem.js';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  return <div>Posts</div>;
+  return loading ? (
+    <div className='top'>
+      <Spin />
+    </div>
+  ) : (
+    <Fragment>
+      <div className='posts'>
+        <h1>Posts</h1>
+        {posts.map((post) => (
+          <PostItem key={post._id} post={post}></PostItem>
+        ))}
+      </div>
+    </Fragment>
+  );
 };
 
 Posts.propTypes = {
