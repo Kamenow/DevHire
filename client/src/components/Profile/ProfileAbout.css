@@ -1,0 +1,27 @@
+.profile-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-about .bio {
+  text-align: center;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skills ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skills h2 {
+  color: #40a9ff;
+}
