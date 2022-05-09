@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { Button, Card } from 'antd';
+import { addLike, removeLike } from '../../actions/post.js';
 
 import './PostItem.css';
 
 const PostItem = ({
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
+  addLike,
+  removeLike,
 }) => {
   return (
     <Card className='wid'>
@@ -26,8 +29,10 @@ const PostItem = ({
             <p>{text}</p>
           </div>
           <div className='button-wrapper'>
-            <Button type='primary'>Like {likes && likes.length}</Button>
-            <Button>Unlike</Button>
+            <Button type='primary' onClick={(e) => addLike(_id)}>
+              Like {likes && likes.length}
+            </Button>
+            <Button onClick={(e) => removeLike(_id)}>Unlike</Button>
             <Button type='primary'>
               Discuss {comments && comments.length}
             </Button>
@@ -44,10 +49,12 @@ const PostItem = ({
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {})(PostItem);
+export default connect(mapStateToProps, { addLike, removeLike })(PostItem);
