@@ -5,6 +5,8 @@ import {
   ACCOUNT_DELETED,
   CLEAR_PROFILE,
   GET_PROFILE,
+  GET_PROFILES,
+  GET_REPOS,
   PROFILE_ERROR,
   UPDATE_PROFILE,
 } from './types.js';
@@ -257,3 +259,22 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
+// Get Github repos
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/github/${username}`);
+
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.statusText || 'Something went wrong',
+        status: err.response.status || 500,
+      },
+    });
+  }
+};
