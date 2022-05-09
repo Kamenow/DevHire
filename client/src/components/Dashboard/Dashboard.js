@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Experience from './Experience/Experience.js';
 import { Card, Descriptions, Empty, Image, Spin, Button } from 'antd';
+import Education from './Education/Education.js';
 
 import { getCurrentProfile, deleteAccount } from '../../actions/profile.js';
 
 import './Dashboard.css';
-import Education from './Education/Education.js';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -18,16 +18,12 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
-
-  if (!profile) {
-    return <Navigate to='/create-profile' />;
-  }
+  }, [getCurrentProfile]);
 
   return (
     <Fragment>
-      {loading && <Spin size='large' />}
-      {!loading && (
+      {loading && <Spin />}
+      {!loading && profile && (
         <section className='dashboard'>
           <Card>
             <div className='center-image'>
