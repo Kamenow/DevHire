@@ -42,7 +42,7 @@ router.post(
 // @route  GET api/posts
 // @desc   Get all posts
 // @access Private
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
     res.json(posts);

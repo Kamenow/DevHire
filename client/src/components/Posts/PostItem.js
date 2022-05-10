@@ -19,7 +19,9 @@ const PostItem = ({
     <Card className='wid'>
       <div className='post-item'>
         <div className='user'>
-          <img src={avatar} alt='' />
+          <Link to={`/profile/${user}`}>
+            <img src={avatar} alt='' />
+          </Link>
           <h2>{name}</h2>
         </div>
         <div className='content-action-wrapper'>

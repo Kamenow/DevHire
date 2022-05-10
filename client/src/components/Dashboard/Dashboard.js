@@ -23,6 +23,13 @@ const Dashboard = ({
   return (
     <Fragment>
       {loading && <Spin />}
+      {!loading && !profile && (
+        <Fragment>
+          <section className='create-profile-prompt'>
+            <Link to='/create-profile'>No profile? Make one!</Link>
+          </section>
+        </Fragment>
+      )}
       {!loading && profile && (
         <section className='dashboard'>
           <Card>
