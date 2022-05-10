@@ -21,6 +21,7 @@ import setAuthToken from './utils/setAuthToken.js';
 import './App.css';
 import Profile from './components/Profile/Profile.js';
 import Posts from './components/Posts/Posts.js';
+import Post from './components/Post.js/Post.js';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -44,6 +45,10 @@ const App = () => {
             <Route path='/profiles' element={<Profiles />} />
             <Route path='/profile/:id' element={<Profile />} />
             <Route path='/posts' element={<PrivateRoute component={Posts} />} />
+            <Route
+              path='/posts/:id'
+              element={<PrivateRoute component={Post} />}
+            />
             <Route
               path='/create-profile'
               element={<PrivateRoute component={CreateProfile} />}

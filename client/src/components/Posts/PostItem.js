@@ -14,6 +14,7 @@ const PostItem = ({
   addLike,
   removeLike,
   deletePost,
+  showActions,
 }) => {
   return (
     <Card className='wid'>
@@ -31,24 +32,32 @@ const PostItem = ({
             </Moment>
             <p>{text}</p>
           </div>
-          <div className='button-wrapper'>
-            <Button type='primary' onClick={(e) => addLike(_id)}>
-              Like {likes && likes.length}
-            </Button>
-            <Button onClick={(e) => removeLike(_id)}>Unlike</Button>
-            <Button type='primary'>
-              Discuss {comments && comments.length}
-            </Button>
-            {!auth.loading && user === auth.user._id && (
-              <Button type='primary' danger onClick={(e) => deletePost(_id)}>
-                Delete
+          {showActions && (
+            <div className='button-wrapper'>
+              <Button type='primary' onClick={(e) => addLike(_id)}>
+                Like {likes && likes.length}
               </Button>
-            )}
-          </div>
+              <Button onClick={(e) => removeLike(_id)}>Unlike</Button>
+              <Link to={`/posts/${_id}`}>
+                <Button type='primary'>
+                  Discuss {comments && comments.length}
+                </Button>
+              </Link>
+              {!auth.loading && user === auth.user._id && (
+                <Button type='primary' danger onClick={(e) => deletePost(_id)}>
+                  Delete
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </Card>
   );
+};
+
+PostItem.defaultProps = {
+  showActions: true,
 };
 
 PostItem.propTypes = {
