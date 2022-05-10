@@ -109,8 +109,6 @@ router.post(
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-
-    res.send('yo');
   }
 );
 
@@ -158,7 +156,7 @@ router.delete('/', auth, async (req, res) => {
     // @todo - remove users posts
 
     // Remove profile
-    await Profile.findOneAndRemove({ user: req.user_id });
+    await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
 
