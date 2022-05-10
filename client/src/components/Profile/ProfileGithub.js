@@ -18,7 +18,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
         <Spin />
       ) : (
         repos.map((repo) => (
-          <Card key={repo._id}>
+          <Card key={repo._id} className='card-width'>
             <div className='github-repos'>
               <h4>
                 <a

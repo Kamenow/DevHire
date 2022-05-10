@@ -39,7 +39,7 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
           </div>
           <ProfileTop profile={profile} />
           <ProfileAbout profile={profile} />
-          <Card>
+          <Card className='profile-ex-ed'>
             <div className='profile-experience'>
               <h2>Experience</h2>
               {profile.experience.length > 0 ? (
@@ -55,8 +55,6 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                 <p>No experience</p>
               )}
             </div>
-          </Card>
-          <Card>
             <div className='profile-education'>
               <h2>Education</h2>
               {profile.education.length > 0 ? (

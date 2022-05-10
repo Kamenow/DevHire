@@ -23,6 +23,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 40%;
   gap: 1rem;
 }
 
@@ -31,5 +32,20 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 40%;
   gap: 1rem;
+}
+
+.profile-ex-ed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.profile-ex-ed .ant-card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
 }

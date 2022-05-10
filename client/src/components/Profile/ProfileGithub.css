@@ -14,3 +14,7 @@
 .repo-info ul {
   list-style: none;
 }
+
+.card-width {
+  width: 90% !important;
+}
