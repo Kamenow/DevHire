@@ -1,0 +1,22 @@
+.comment-form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.comment-form form {
+  width: 80%;
+}
+
+.comment-form .ant-form-item {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-form .ant-input {
+  height: 10rem;
+  width: 100%;
+}
