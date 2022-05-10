@@ -2,9 +2,12 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Spin } from 'antd';
+import { List, Spin } from 'antd';
+
 import { getPost } from '../../actions/post.js';
 import PostItem from '../Posts/PostItem.js';
+import CommentForm from './CommentForm.js';
+import Comments from './Comments.js';
 
 import './Post.css';
 
@@ -20,7 +23,17 @@ const Post = ({ getPost, post: { loading, post } }) => {
       {loading || (!post && <Spin />)}
       {!loading && post && (
         <section className='single-post'>
+          <CommentForm postId={post._id}></CommentForm>
           <PostItem post={post} showActions={false}></PostItem>
+          <div className='comments'>
+            {post.comments.map((comment) => (
+              <Comments
+                key={comment._id}
+                comment={comment}
+                postId={post._id}
+              ></Comments>
+            ))}
+          </div>
         </section>
       )}
     </Fragment>

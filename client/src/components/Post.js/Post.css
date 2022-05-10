@@ -3,4 +3,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  flex-direction: column;
+}
+
+.comments {
+  margin-top: 1rem;
+  width: 60%;
 }
