@@ -26,6 +26,9 @@
 }
 
 .button-wrapper {
+  display: flex;
+  gap: 0.5rem;
+
   position: absolute;
   bottom: 0;
   right: 0;
