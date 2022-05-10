@@ -1,0 +1,27 @@
+.post-form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.post-form form {
+  width: 80%;
+}
+
+.post-form .ant-form-item {
+  display: flex;
+  justify-content: center;
+}
+
+.post-form .ant-input {
+  height: 10rem;
+  width: 100%;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

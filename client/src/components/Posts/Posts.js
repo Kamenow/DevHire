@@ -7,6 +7,7 @@ import { getPosts } from '../../actions/post.js';
 
 import './Posts.css';
 import PostItem from './PostItem.js';
+import PostForm from './PostForm.js';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     </div>
   ) : (
     <Fragment>
+      <PostForm />
       <div className='posts'>
         <h1>Posts</h1>
         {posts.map((post) => (
