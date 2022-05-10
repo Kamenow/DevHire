@@ -9,6 +9,7 @@ import Education from './Education/Education.js';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile.js';
 
 import './Dashboard.css';
+import { CheckOutlined } from '@ant-design/icons';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -48,18 +49,36 @@ const Dashboard = ({
                   <Descriptions.Item label='Email'>
                     {user.email}
                   </Descriptions.Item>
-                  <Descriptions.Item label='Telephone'>
-                    1810000000
+                  <Descriptions.Item label='Company'>
+                    {profile.company}
                   </Descriptions.Item>
-                  <Descriptions.Item label='Live'>
-                    Hangzhou, Zhejiang
+                  <Descriptions.Item label='Location'>
+                    {profile.location}
                   </Descriptions.Item>
-                  <Descriptions.Item label='Remark'>empty</Descriptions.Item>
-                  <Descriptions.Item label='Address'>
-                    No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang,
-                    China
+                  <Descriptions.Item label='Github'>
+                    {profile.githubusername}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='Status' className='status'>
+                    {profile.status}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='Skills' className='status'>
+                    {profile.skills.splice(0, 4).join(', ')}...
                   </Descriptions.Item>
                 </Descriptions>
+              </Card>
+              <Card className='skills-card'>
+                <div className='skills'>
+                  <h2>Skill Set</h2>
+                  <ul>
+                    {profile.skills.map((skill) => {
+                      return (
+                        <li key={skill}>
+                          <CheckOutlined /> {skill}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </Card>
               {profile.experience.length > 0 ? (
                 <Experience experience={profile.experience} />
