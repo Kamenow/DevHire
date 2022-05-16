@@ -11,7 +11,7 @@
 
 ## Create/Edit Profile Page
 
-![Create/Edit Page](https://github.com/Kamenow/DevHire/blob/main/github-images/create-edit.png)
+![Create/Edit Page](https://github.com/Kamenow/DevHire/blob/main/github-images/create-edit-profile.png)
 
 ## Dashboard Page
 
