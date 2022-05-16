@@ -23,8 +23,8 @@ const Post = ({ getPost, post: { loading, post } }) => {
       {loading || (!post && <Spin />)}
       {!loading && post && (
         <section className='single-post'>
-          <CommentForm postId={post._id}></CommentForm>
           <PostItem post={post} showActions={false}></PostItem>
+          <CommentForm postId={post._id}></CommentForm>
           <div className='comments'>
             {post.comments.map((comment) => (
               <Comments

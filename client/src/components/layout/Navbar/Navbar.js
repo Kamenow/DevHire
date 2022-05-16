@@ -42,6 +42,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <nav>
+      <Link to='/'>DevHire</Link>
       <ul>{!loading && isAuthenticated ? authLinks : guestLinks}</ul>
     </nav>
   );
